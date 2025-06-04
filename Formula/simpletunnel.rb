@@ -1,31 +1,32 @@
 class Simpletunnel < Formula
   desc "Expose local services to the internet with automatic HTTPS"
   homepage "https://simpletunnel.com"
-  version "1.5.0"
+  version "2.0.0"
   license "Proprietary"
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/simple-tunnel/releases/releases/download/v1.5.0/tunnel-client-darwin-arm64"
-    sha256 "8c87102eb1b4e7d0b655d25210e0b8dd6f9ceae332c1ddf80287d82345ba82c5"
+    url "https://github.com/simple-tunnel/releases/releases/download/v2.0.0/simpletunnel-darwin-arm64"
+    sha256 "75ed688c2910b056b8fa7c61bc9cd72b80c3693b05df46ea4993e11279346efc"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/simple-tunnel/releases/releases/download/v1.5.0/tunnel-client-darwin-amd64"
-    sha256 "e28509023a7347b0a5d31c688f03664c3501ad31b763c3ed629dc05012258c2b"
+    url "https://github.com/simple-tunnel/releases/releases/download/v2.0.0/simpletunnel-darwin-amd64"
+    sha256 "dfbef4afe04d373be6f326d1a60d5ea5a8ccba7782e7449a47690bfbdeb68d44"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/simple-tunnel/releases/releases/download/v1.5.0/tunnel-client-linux-amd64"
-    sha256 "6e3b5315dd512a875523939144b45ee181d735ea16ad72013851c6f1d23d4af4"
+    url "https://github.com/simple-tunnel/releases/releases/download/v2.0.0/simpletunnel-linux-amd64"
+    sha256 "678168a0f7f79bbcdc1248b1cdcc48f7fb77f355e11ccd9312e9f98323d0d507"
   end
 
   def install
     if OS.mac? && Hardware::CPU.arm?
-      bin.install "tunnel-client-darwin-arm64" => "simpletunnel"
+      bin.install "simpletunnel-darwin-arm64" => "simpletunnel"
     elsif OS.mac? && Hardware::CPU.intel?
-      bin.install "tunnel-client-darwin-amd64" => "simpletunnel"
+      bin.install "simpletunnel-darwin-amd64" => "simpletunnel"
     elsif OS.linux?
-      bin.install "tunnel-client-linux-amd64" => "simpletunnel"
+      bin.install "simpletunnel-linux-amd64" => "simpletunnel"
     end
   end
 
   test do
-    assert_match "Usage:", shell_output("#{bin}/simpletunnel --help 2>&1", 2)
+    # Test that it shows API key error
+    assert_match "API key required", shell_output("#{bin}/simpletunnel -port 8080 2>&1", 1)
   end
 end

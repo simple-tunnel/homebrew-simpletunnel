@@ -1,18 +1,18 @@
 class Simpletunnel < Formula
   desc "Expose local services to the internet with automatic HTTPS"
   homepage "https://simpletunnel.com"
-  version "1.3.0"
+  version "1.4.0"
   license "Proprietary"
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/simple-tunnel/releases/releases/download/v1.3.0/tunnel-client-darwin-arm64"
-    sha256 "5ef1d44da8b06fe08e7e500bc4dde3490b33c5333470f174e40444d931767746"
+    url "https://github.com/simple-tunnel/releases/releases/download/v1.4.0/tunnel-client-darwin-arm64"
+    sha256 "54d908e2b031acc113247b6398dd18a8356685895bc0808d0b52c6eb9574938a"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/simple-tunnel/releases/releases/download/v1.3.0/tunnel-client-darwin-amd64"
-    sha256 "989c19d7f7c11a2707429a8e14399b03d2aba866d8b40cb65ebe16b972f7fbbf"
+    url "https://github.com/simple-tunnel/releases/releases/download/v1.4.0/tunnel-client-darwin-amd64"
+    sha256 "a5348f35b552606ed7744e84dbfda04899ddccaad702eeeabfa32bcbbc91c616"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/simple-tunnel/releases/releases/download/v1.3.0/tunnel-client-linux-amd64"
-    sha256 "024e063822e2ae8d2e4d4af591fde459e1ecae57f61d63267d2bed5517f839fb"
+    url "https://github.com/simple-tunnel/releases/releases/download/v1.4.0/tunnel-client-linux-amd64"
+    sha256 "7a9889c768fe09a88dffc56755249510f5378eb864b82cc25ef63cea1c94092f"
   end
 
   def install

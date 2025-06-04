@@ -5,23 +5,23 @@ class Simpletunnel < Formula
   license "Proprietary"
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/simple-tunnel/releases/releases/download/v2.0.2/simpletunnel-darwin-arm64"
-    sha256 "f78f8444d6cb2bfe064401dd1e71b61ddf1aa4ba2e2ef2dc13395ce1f1f200e8"
+    url "https://github.com/simple-tunnel/releases/releases/download/v2.1.0/tunnel-client-darwin-arm64"
+    sha256 "70f95533925d401d8b0f5e2cb640a79762108caa57df18bcbc2bf5eabafea942"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/simple-tunnel/releases/releases/download/v2.0.2/simpletunnel-darwin-amd64"
-    sha256 "ec2880f770449c98fcca1523826c0889b999cae8fcb2f4a72d1c28dd3d851121"
+    url "https://github.com/simple-tunnel/releases/releases/download/v2.1.0/tunnel-client-darwin-amd64"
+    sha256 "9a320f453b4eae4d37f8170cd683d5771e071e6940942b945d49a736160a7cc9"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/simple-tunnel/releases/releases/download/v2.0.2/simpletunnel-linux-amd64"
-    sha256 "0b28080abcf6955a3d29c6ed2f6862b6d9e7e7ee150962ec33ba0e1f9221fc3d"
+    url "https://github.com/simple-tunnel/releases/releases/download/v2.1.0/tunnel-client-linux-amd64"
+    sha256 "314736f7fc5496c79cd912f597081ee4efa0893dc0eb440f8e7d49b6639696dc"
   end
 
   def install
     if OS.mac? && Hardware::CPU.arm?
-      bin.install "simpletunnel-darwin-arm64" => "simpletunnel"
+      bin.install "tunnel-client-darwin-arm64" => "simpletunnel"
     elsif OS.mac? && Hardware::CPU.intel?
-      bin.install "simpletunnel-darwin-amd64" => "simpletunnel"
+      bin.install "tunnel-client-darwin-amd64" => "simpletunnel"
     elsif OS.linux?
-      bin.install "simpletunnel-linux-amd64" => "simpletunnel"
+      bin.install "tunnel-client-linux-amd64" => "simpletunnel"
     end
   end
 

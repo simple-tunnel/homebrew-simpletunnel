@@ -1,7 +1,7 @@
 class Simpletunnel < Formula
   desc "Expose local services to the internet with automatic HTTPS"
   homepage "https://simpletunnel.com"
-  version "2.0.2"
+  version "2.1.0"
   license "Proprietary"
 
   if OS.mac? && Hardware::CPU.arm?

@@ -1,32 +1,36 @@
 class Simpletunnel < Formula
-  desc "Expose local services to the internet with automatic HTTPS"
+  desc "Fast and secure tunneling solution for exposing local services"
   homepage "https://simpletunnel.com"
-  version "2.4.0"
-  license "Proprietary"
+  version "2.6.0"
+  license "MIT"
 
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/simple-tunnel/releases/releases/download/v2.4.0/simpletunnel-darwin-arm64"
-    sha256 "a9ba750c58f1f07af50364717fa8ed27ac19a1882a55c50da69c45e870c6d2e4"
-  elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/simple-tunnel/releases/releases/download/v2.4.0/simpletunnel-darwin-amd64"
-    sha256 "af00a558c67b272e582f55946ff54a5d98db086b1ab04d87d0fc6c1728d6aa72"
-  elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/simple-tunnel/releases/releases/download/v2.4.0/simpletunnel-linux-amd64"
-    sha256 "cad62c48a22c222292bcc814c4cb7035379d661dfa418f137f28bf5e37bd7dc8"
-  end
-
-  def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "simpletunnel-darwin-arm64" => "simpletunnel"
-    elsif OS.mac? && Hardware::CPU.intel?
-      bin.install "simpletunnel-darwin-amd64" => "simpletunnel"
-    elsif OS.linux?
-      bin.install "simpletunnel-linux-amd64" => "simpletunnel"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/simple-tunnel/releases/releases/download/v2.6.0/simpletunnel-darwin-arm64"
+      sha256 "00712c4add0647f585c5059a01815487c01c81ce6594720a6c5e90b053bf59d4"
+    else
+      url "https://github.com/simple-tunnel/releases/releases/download/v2.6.0/simpletunnel-darwin-amd64"
+      sha256 "f0064033b9e163c36136d3a8fd9c9a2b14125f9b18196137ab8cbdbc88a11809"
     end
   end
 
+  def install
+    bin.install "simpletunnel-darwin-#{Hardware::CPU.arch}" => "simpletunnel"
+  end
+
+  def caveats
+    <<~EOS
+      SimpleTunnel requires an API key to function.
+      
+      1. Get your API key from https://simpletunnel.com
+      2. Use SimpleTunnel:
+         simpletunnel -port 3000 -key YOUR_API_KEY
+      
+      For more information, visit https://simpletunnel.com/docs
+    EOS
+  end
+
   test do
-    # Test that it shows free tier message
-    assert_match "FREE tier mode", shell_output("#{bin}/simpletunnel -port 8080 2>&1", 1)
+    assert_match "SimpleTunnel", shell_output("#{bin}/simpletunnel -h 2>&1", 1)
   end
 end

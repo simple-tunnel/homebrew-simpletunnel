@@ -1,16 +1,16 @@
 class Simpletunnel < Formula
   desc "Fast and secure tunneling solution for exposing local services"
   homepage "https://simpletunnel.com"
-  version "1.6.16"
+  version "1.6.23"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/simple-tunnel/releases/releases/download/v1.6.16/simpletunnel-darwin-arm64"
-      sha256 "76c3a214893e3862d97494d7e8d81c90c65fa4334c2ed0a785abb071e48453d0"
+      url "https://github.com/simple-tunnel/releases/releases/download/v1.6.23/simpletunnel-darwin-arm64"
+      sha256 "4eac5b866536e3bdabe2db42ba64758e38eacf6f7c0f5d2117ad52bfe2274829"
     else
-      url "https://github.com/simple-tunnel/releases/releases/download/v1.6.16/simpletunnel-darwin-amd64"
-      sha256 "76c3a214893e3862d97494d7e8d81c90c65fa4334c2ed0a785abb071e48453d0"
+      url "https://github.com/simple-tunnel/releases/releases/download/v1.6.23/simpletunnel-darwin-amd64"
+      sha256 "4eac5b866536e3bdabe2db42ba64758e38eacf6f7c0f5d2117ad52bfe2274829"
     end
   end
 
@@ -31,6 +31,6 @@ class Simpletunnel < Formula
   end
 
   test do
-    assert_match "SimpleTunnel", shell_output("#{bin}/simpletunnel --help 2>&1", 0)
+    assert_match "SimpleTunnel", shell_output("#{bin}/simpletunnel -h 2>&1", 1)
   end
 end

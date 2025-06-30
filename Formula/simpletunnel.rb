@@ -7,10 +7,10 @@ class Simpletunnel < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/simple-tunnel/homebrew-simpletunnel/raw/main/releases/v1.16.7/simpletunnel-darwin-arm64"
-      sha256 "3eeac966639d184d47689622e2ebd7ebd2f9f38ba3e581c1fd911f5991b923b8"
+      sha256 "dcc3df20bae6145720e3e55dfdcd7c10e484e840d4ad9b5954873617e0502ab2"
     else
       url "https://github.com/simple-tunnel/homebrew-simpletunnel/raw/main/releases/v1.16.7/simpletunnel-darwin-amd64"
-      sha256 "3eeac966639d184d47689622e2ebd7ebd2f9f38ba3e581c1fd911f5991b923b8"
+      sha256 "d1a1ef47cab42a0cc4cd4079e335ae9293ab0010f4188f947e4ffcac45f4ae40"
     end
   end
 

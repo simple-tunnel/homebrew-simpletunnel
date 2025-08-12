@@ -1,14 +1,14 @@
 class Simpletunnel < Formula
   desc "Simple and secure tunneling solution"
   homepage "https://github.com/simple-tunnel/releases"
-  version "2.1.38"
+  version "2.1.39"
 
   if Hardware::CPU.intel?
-    url "https://github.com/simple-tunnel/releases/releases/download/v2.1.38/simpletunnel-darwin-amd64"
-    sha256 "dabca88e1d4afdf3c5bf3efb5e33b2ee0c42ae7db1c4c9d1a287b2bcc621f11f"
+    url "https://github.com/simple-tunnel/releases/releases/download/v2.1.39/simpletunnel-darwin-amd64"
+    sha256 "9bb94959e6c502985a720f36ffaf3ad5208e48fd8580f6364064a3ccbfdfb063"
   elsif Hardware::CPU.arm?
-    url "https://github.com/simple-tunnel/releases/releases/download/v2.1.38/simpletunnel-darwin-arm64"
-    sha256 "2ad05711a3c97cc4d00c8b4f597423eab5168536a878892bc3bee427741fda86"
+    url "https://github.com/simple-tunnel/releases/releases/download/v2.1.39/simpletunnel-darwin-arm64"
+    sha256 "1d0e80df910ef71858982cc276c7ccb7affe2b76dd703226ca76fd4011fe5a35"
   end
 
   def install

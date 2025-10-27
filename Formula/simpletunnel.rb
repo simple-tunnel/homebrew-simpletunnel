@@ -1,21 +1,36 @@
 class Simpletunnel < Formula
-  desc "Simple and secure tunneling solution"
-  homepage "https://github.com/simple-tunnel/releases"
-  version "2.2.53"
+  desc "Fast and secure tunneling solution for exposing local services"
+  homepage "https://simpletunnel.com"
+  version "2.2.54"
+  license "MIT"
 
-  if Hardware::CPU.intel?
-    url "https://github.com/simple-tunnel/releases/releases/download/v2.2.53/simpletunnel-darwin-amd64"
-    sha256 "ae8182c526bebb7e4284c3fc496b4bfc61a33b33fff157470c50529584c85d16"
-  elsif Hardware::CPU.arm?
-    url "https://github.com/simple-tunnel/releases/releases/download/v2.2.53/simpletunnel-darwin-arm64"
-    sha256 "d5aec36a910c112712cf579963713a225724ec3765711ce769b702c4535a385e"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/simple-tunnel/releases/releases/download/v2.2.54/simpletunnel-darwin-arm64"
+      sha256 "278d906c7f65297bb30ddc317cd1c0c89609526c7391827a027f96ee7f2239a7"
+    else
+      url "https://github.com/simple-tunnel/releases/releases/download/v2.2.54/simpletunnel-darwin-amd64"
+      sha256 "a8a32d290bd00f4e7f612f76846b370fad948de3d3084d3d46122d898858ec68"
+    end
   end
 
   def install
     bin.install "simpletunnel-darwin-#{Hardware::CPU.arch}" => "simpletunnel"
   end
 
+  def caveats
+    <<~EOS
+      SimpleTunnel requires an API key to function.
+      
+      1. Get your API key from https://simpletunnel.com
+      2. Use SimpleTunnel:
+         simpletunnel -port 3000 -key YOUR_API_KEY
+      
+      For more information, visit https://simpletunnel.com/docs
+    EOS
+  end
+
   test do
-    system "#{bin}/simpletunnel", "--version"
+    assert_match "SimpleTunnel", shell_output("#{bin}/simpletunnel -h 2>&1", 1)
   end
 end

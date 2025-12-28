@@ -1,16 +1,16 @@
 class Simpletunnel < Formula
   desc "Fast and secure tunneling solution for exposing local services"
   homepage "https://simpletunnel.com"
-  version "2.21.1"
+  version "2.21.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/simple-tunnel/releases/releases/download/v2.21.1/simpletunnel-darwin-arm64"
-      sha256 "9e73ede2316da96d8f736f2a1bec6cc1a699656846d81c814b6abba59c4e1b63"
+      url "https://github.com/simple-tunnel/releases/releases/download/v2.21.2/simpletunnel-darwin-arm64"
+      sha256 "ca1cd0bafd02880000290a8c35821010d11695c67d10ad892a7a093c9b555a8f"
     else
-      url "https://github.com/simple-tunnel/releases/releases/download/v2.21.1/simpletunnel-darwin-amd64"
-      sha256 "5dd281d666106e116169635a16de08b663bd55923e3bdd5339c72528754ee339"
+      url "https://github.com/simple-tunnel/releases/releases/download/v2.21.2/simpletunnel-darwin-amd64"
+      sha256 "08ff371bbae488e623ab272ff503c0c71f34f052e0d01ebf38f992e1deadb3a1"
     end
   end
 
@@ -21,11 +21,11 @@ class Simpletunnel < Formula
   def caveats
     <<~EOS
       SimpleTunnel requires an API key to function.
-
+      
       1. Get your API key from https://simpletunnel.com
       2. Use SimpleTunnel:
          simpletunnel -port 3000 -key YOUR_API_KEY
-
+      
       For more information, visit https://simpletunnel.com/docs
     EOS
   end

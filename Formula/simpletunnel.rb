@@ -1,16 +1,16 @@
 class Simpletunnel < Formula
   desc "Fast and secure tunneling solution for exposing local services"
   homepage "https://simpletunnel.com"
-  version "3.38.0"
+  version "3.39.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/simple-tunnel/releases/releases/download/v3.38.0/simpletunnel-darwin-arm64"
-      sha256 "52651e7ec47749f76c26d39bda2086a88959b5776b37df450dfe4e34ec664545"
+      url "https://github.com/simple-tunnel/releases/releases/download/v3.39.0/simpletunnel-darwin-arm64"
+      sha256 "cdfaca8bc2157b62588f9a58e3448cefdef57edb32a0b13c9836401777dd7dcd"
     else
-      url "https://github.com/simple-tunnel/releases/releases/download/v3.38.0/simpletunnel-darwin-amd64"
-      sha256 "95aa837a302725bfdb3d449b790c7a800184dadf97c64123cb64dde5c1d65d4b"
+      url "https://github.com/simple-tunnel/releases/releases/download/v3.39.0/simpletunnel-darwin-amd64"
+      sha256 "3665c4509446148932c8944a1c9a403f5a942e14ef14316d789adc9234bd0837"
     end
   end
 

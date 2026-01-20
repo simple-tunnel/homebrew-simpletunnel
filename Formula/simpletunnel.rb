@@ -1,16 +1,16 @@
 class Simpletunnel < Formula
   desc "Fast and secure tunneling solution for exposing local services"
-  homepage "https://simpletunnel.com"
-  version "3.81.0"
+  homepage "https://stunl.com"
+  version "3.82.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/simple-tunnel/releases/releases/download/v3.81.0/simpletunnel-darwin-arm64"
-      sha256 "2e67f05c91dcab1f3a551f8a37d83589b5500f0188db4c6500aff988449cacb6"
+      url "https://github.com/simple-tunnel/releases/releases/download/v3.82.0/simpletunnel-darwin-arm64"
+      sha256 "5021cd11edae36339b1ef9067e67e49146cf35b33747c6d23442ce0eb269d427"
     else
-      url "https://github.com/simple-tunnel/releases/releases/download/v3.81.0/simpletunnel-darwin-amd64"
-      sha256 "a27618d0b13f4b8bf7cfad0e44a34ed8c703298cc7e2b84576a7598e94b1753e"
+      url "https://github.com/simple-tunnel/releases/releases/download/v3.82.0/simpletunnel-darwin-amd64"
+      sha256 "2ddb8cd374e720a57f472e5b2fb9fe0417db3d063c9068404e66f693dff2f34f"
     end
   end
 
@@ -22,11 +22,11 @@ class Simpletunnel < Formula
     <<~EOS
       SimpleTunnel requires an API key to function.
 
-      1. Get your API key from https://simpletunnel.com
+      1. Get your API key from https://stunl.com
       2. Use SimpleTunnel:
          simpletunnel -port 3000 -key YOUR_API_KEY
 
-      For more information, visit https://simpletunnel.com/docs
+      For more information, visit https://docs.stunl.com
     EOS
   end
 
